@@ -1,5 +1,3 @@
-only:
-
 # Lead Scoring AI App (Streamlit)
 
 A simple Streamlit app to score leads using Rule-based logic combined with Gemini AI.
