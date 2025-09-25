@@ -1,56 +1,44 @@
-Lead Scoring AI App (Streamlit)
+only:
+
+# Lead Scoring AI App (Streamlit)
 
 A simple Streamlit app to score leads using Rule-based logic combined with Gemini AI.
 
 This app allows you to:
 
-Upload a CSV of leads.
+- Upload a CSV of leads.
+- Input your offer details (name, value propositions, ideal use cases).
+- Score leads automatically based on role, industry, and AI-assessed intent.
+- View results as JSON or table.
+- Download the scored leads as a CSV.
 
-Input your offer details (name, value propositions, ideal use cases).
+## Features
 
-Score leads automatically based on role, industry, and AI-assessed intent.
-
-View results as JSON or table.
-
-Download the scored leads as a CSV.
-
-Features
-
-Rule-based scoring
+### Rule-based scoring
 Scores leads based on:
+- Role relevance (Head, Director, Manager etc.)
+- Industry match with your ideal use cases.
+- Completeness of lead data.
 
-Role relevance (Head, Director, Manager etc.)
+### Gemini AI scoring
+- Uses Google Gemini API (gemini-2.5-flash) to classify buying intent: High, Medium, Low.
+- Provides a short explanation for the intent.
 
-Industry match with your ideal use cases.
+### Easy CSV handling
+- Download sample CSV to see format.
+- Upload your own leads CSV.
+- Download scored leads CSV with combined rule + AI score.
 
-Completeness of lead data.
+## Requirements
 
-Gemini AI scoring
-
-Uses Google Gemini API (gemini-2.5-flash) to classify buying intent: High, Medium, Low.
-
-Provides a short explanation for the intent.
-
-Easy CSV handling
-
-Download sample CSV to see format.
-
-Upload your own leads CSV.
-
-Download scored leads CSV with combined rule + AI score.
-
-Requirements
-
-Python 3.10+
-
-Streamlit
-
-Pandas
-
-Google Gemini AI SDK (google-generativeai)
+- Python 3.10+
+- Streamlit
+- Pandas
+- Google Gemini AI SDK (`google-generativeai`)
 
 Install dependencies:
 
+```bash
 pip install streamlit pandas google-generativeai
 
 Usage
