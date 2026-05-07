@@ -12,6 +12,18 @@ This app allows you to:
 
 ## Features
 
+### AI Model Settings (Learning)
+The app exposes a few basic Gemini model parameters such as temperature and maximum
+output tokens. These controls are added to help understand how changes in model
+settings affect AI responses.
+
+Users can experiment with these parameters from the UI and observe how the AI’s
+classification and explanation change accordingly.
+
+- Allows users to adjust basic AI model parameters (temperature, output length) to understand LLM behavior.
+
+
+
 ### Rule-based scoring
 Scores leads based on:
 - Role relevance (Head, Director, Manager etc.)
