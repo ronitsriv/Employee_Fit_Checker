@@ -1,101 +1,48 @@
-# Lead Scoring AI App (Streamlit)
+# AI Recruiter Fit Analyzer
 
-A simple Streamlit app to score leads using Rule-based logic combined with Gemini AI.
+An AI-powered resume-to-JD evaluation tool built with **Python, Streamlit, and Gemini**.
 
-This app allows you to:
+Instead of traditional ATS keyword matching, the app evaluates a candidate like an experienced technical recruiter by considering:
 
-- Upload a CSV of leads.
-- Input your offer details (name, value propositions, ideal use cases).
-- Score leads automatically based on role, industry, and AI-assessed intent.
-- View results as JSON or table.
-- Download the scored leads as a CSV.
+* **Actual demonstrated capabilities**
+* **Transferable skills**
+* **Project experience**, especially for freshers
+* **Professional vs internship vs project experience**
+* **Experience and seniority gaps**
+* **What the candidate can likely do immediately**
+* **What would require additional training**
+* **Overall likelihood of being shortlisted**
 
-## Features
+### How it works
 
-### AI Model Settings (Learning)
-The app exposes a few basic Gemini model parameters such as temperature and maximum
-output tokens. These controls are added to help understand how changes in model
-settings affect AI responses.
+1. Paste a candidate's **resume**.
+2. Paste the **Job Description**.
+3. Adjust Gemini's **Temperature** and **Max Output Tokens** if desired.
+4. Click **Analyze Candidate**.
+5. Gemini provides a recruiter-style assessment and shortlist recommendation.
 
-Users can experiment with these parameters from the UI and observe how the AI’s
-classification and explanation change accordingly.
+### Key idea
 
-- Allows users to adjust basic AI model parameters (temperature, output length) to understand LLM behavior.
+The system does **not** ask:
 
+> "How many keywords from the JD appear in the resume?"
 
+Instead, it asks:
 
-### Rule-based scoring
-Scores leads based on:
-- Role relevance (Head, Director, Manager etc.)
-- Industry match with your ideal use cases.
-- Completeness of lead data.
+> **"Based on the evidence in this resume, could this candidate realistically succeed in this particular role?"**
 
-### Gemini AI scoring
-- Uses Google Gemini API (gemini-2.5-flash) to classify buying intent: High, Medium, Low.
-- Provides a short explanation for the intent.
+### Tech Stack
 
-### Easy CSV handling
-- Download sample CSV to see format.
-- Upload your own leads CSV.
-- Download scored leads CSV with combined rule + AI score.
+* Python
+* Streamlit
+* Google Gemini API
+* JSON-based structured AI output
 
-## Requirements
-
-- Python 3.10+
-- Streamlit
-- Pandas
-- Google Gemini AI SDK (`google-generativeai`)
-
-Install dependencies:
+### Run locally
 
 ```bash
-pip install streamlit pandas google-generativeai
+pip install streamlit google-generativeai
+streamlit run ai_recruiter_fit.py
+```
 
-Usage
-
-Clone or download this repository.
-
-Run the app:
-
-streamlit run final_app.py
-
-
-Enter your offer details:
-
-Offer Name
-
-Value Propositions (comma separated)
-
-Ideal Use Cases (comma separated)
-
-Upload your leads CSV:
-
-Required columns: name, role, company, industry, location, linkedin_bio
-
-Run scoring:
-
-View results in JSON or table format.
-
-Download the scored leads CSV.
-
-Sample CSV Format
-name	role	company	industry	location	linkedin_bio
-Ava Patel	Head of Growth	FlowMetrics	B2B SaaS	NY	Scaling GTM
-John Doe	Marketing Manager	MarketIQ	B2B SaaS	SF	Digital marketing lead
-Output
-
-rule_score: Points from rule-based logic.
-
-ai_points: Points assigned by Gemini AI.
-
-score: Combined score.
-
-intent: AI classified intent (High, Medium, Low).
-
-reasoning: AI explanation for intent.
-
-Notes
-
-Make sure your Gemini API key is valid (currently hardcoded in the script as API_KEY).
-
-The scoring uses both manual rules and AI insights to give a better lead prioritization.
+Replace `your-api-key-here` in the Python file with your Gemini API key.
